@@ -214,6 +214,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\DBConnection.cs" />
     <Compile Include="Giris.aspx.cs">
       <DependentUpon>Giris.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
