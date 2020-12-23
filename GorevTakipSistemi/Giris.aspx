@@ -11,14 +11,14 @@
     <meta name="description" content="Bluemoon Admin">
     <meta name="keywords" content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Wrapbootstrap, Bootstrap, C3 Graphs, D3 Graphs, NVD3 Graphs, Admin Skin, Black Admin Dashboard, Grey Admin Dashboard, Dark Admin Dashboard, Simple Admin Dashboard, Simple Admin Theme, Simple Bootstrap Dashboard, Invoice, Tasks, Profile">
     <meta name="author" content="Srinu Basava">
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="img/Protak7.png">
     <title>ProTak Giriş</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/main.css" rel="stylesheet">
     <link href="fonts/icomoon/icomoon.css" rel="stylesheet">
 </head>
 <body class="login-bg">
-    <form action="http://iamsrinu.com/bluemoon2.1/index.html">
+    <form runat="server">
         <div class="login-wrapper">
             <div class="login">
                 <div class="login-header">
@@ -28,10 +28,10 @@
                 </div>
                 <div class="login-body">
                     <div class="form-group">
-                        <label for="emailID">Email</label><input id="emailID" type="text" class="form-control" placeholder="Email"></div>
+                        <label for="emailID">Email</label><input id="txtEmail" runat="server" type="text" class="form-control" placeholder="Email"></div>
                     <div class="form-group">
-                        <label for="password">Parola</label><input id="password" type="password" class="form-control" placeholder="Parola"></div>
-                    <button class="btn btn-danger btn-block" type="submit">Giriş Yap</button></div>
+                        <label for="password">Parola</label><input id="txtParola" runat="server" type="password" class="form-control" placeholder="Parola"></div>
+                    <button class="btn btn-danger btn-block" id="btnGiris" runat="server" onserverclick="btnGiris_ServerClick" type="submit">Giriş Yap</button></div>
                 <div class="checkbox no-margin">
                     <input type="checkbox" id="remember" checked="checked"><label for="remember">Beni Hatırla</label></div>
             </div>
