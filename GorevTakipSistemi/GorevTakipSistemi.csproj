@@ -215,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\DBConnection.cs" />
+    <Compile Include="Classes\Kullanici.cs" />
     <Compile Include="Giris.aspx.cs">
       <DependentUpon>Giris.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
