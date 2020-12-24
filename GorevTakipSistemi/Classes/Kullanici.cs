@@ -21,6 +21,7 @@ namespace GorevTakipSistemi.Classes
         {
 
         }
+
         #region Fonk
         public bool KayitAc(int prmID)
         {

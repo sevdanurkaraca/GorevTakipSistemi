@@ -22,8 +22,12 @@ namespace GorevTakipSistemi
         public string YapilanIs = "";
         public int TamamlayanKullaniciID = -1;
 
-        #region Fonk
+        public Gorev()
+        {
 
+        }
+
+        #region Fonk
         public bool KayitAc(int prmID)
         {
             bool ret = false;
@@ -112,8 +116,6 @@ namespace GorevTakipSistemi
             return ret;
 
         }
-
-
         #endregion
 
 
