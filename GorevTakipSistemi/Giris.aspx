@@ -16,6 +16,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/main.css" rel="stylesheet">
     <link href="fonts/icomoon/icomoon.css" rel="stylesheet">
+    <link href="css/alertify/core.css" rel="stylesheet" />
+    <link href="css/alertify/default.css" rel="stylesheet" />
+    <script src="js/alertify/alertify.js"></script>
 </head>
 <body class="login-bg">
     <form runat="server">
@@ -38,5 +41,9 @@
             <p>Yeni Üyelik İçin  <a href="signup.html">Kayıt Ol</a></p>
         </div>
     </form>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 </html>
