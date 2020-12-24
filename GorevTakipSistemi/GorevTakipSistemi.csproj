@@ -225,6 +225,7 @@
     <Compile Include="Giris.aspx.designer.cs">
       <DependentUpon>Giris.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Gorev.cs" />
     <Compile Include="Gorevler.aspx.cs">
       <DependentUpon>Gorevler.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
