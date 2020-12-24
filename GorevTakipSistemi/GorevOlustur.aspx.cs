@@ -15,7 +15,20 @@ namespace GorevTakipSistemi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DoldurGorevli();
+            //session süresi dolmuş ise giriş sayfasına yönlendirmek için ve tekrardan kalınan yerden devam edebilmek için de returnUrl
+            if (Session["Kullanici"] == null)
+            {
+                Response.Redirect("Giris.aspx?ReturnUrl=" + HttpContext.Current.Request.RawUrl); //hangi sayfada olduğumuz bilgisini tutuyor
+            }
+            else
+            {
+                //bu sayfa ilk defa yüklenmiş mi kontrol edilmesi gerekiyor. Sayfa içerisindeki hareketler page load'a gidiyor ve daha önceden giriş yapılmışsa vb için kontrol sağlanmalı
+                if (!IsPostBack)
+                {
+                    DoldurGorevli();
+                }
+            }
+            
         }
         //Görevli Listboxını doldurmak için kullanılan fonk
         private void DoldurGorevli()

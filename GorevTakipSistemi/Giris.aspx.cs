@@ -21,6 +21,18 @@ namespace GorevTakipSistemi
 
             if(k.KayitAc(txtEmail.Value, txtParola.Value))
             {
+                //bütün sayfalarda login olmuş kullanıcının bilgilerine erişebilmek için
+                Session["Kullanici"] = k;
+
+                if (Request["ReturnUrl"] == null)
+                {
+                    Response.Redirect("Gorevler.aspx");
+                }
+                else
+                {
+                    Response.Redirect("ReturnUrl");
+                }
+
                 Response.Redirect("Gorevler.aspx");
             }
             else
