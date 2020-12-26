@@ -152,6 +152,67 @@ namespace GorevTakipSistemi.Classes
         }
 
 
+        public object RetStoredProc(string prmSpName, List<SqlParameter> prmListPar, SqlTransaction prmTra)
+        {
+            object ret = null;
 
+            try
+            {
+                if (sqlBaglanti.State != ConnectionState.Open)
+                {
+                    sqlBaglanti.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand(prmSpName, sqlBaglanti);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Transaction = prmTra;
+
+                for (int i = 0; i < prmListPar.Count; i++)
+                {
+                    cmd.Parameters.Add(prmListPar[i]);
+                }
+
+                ret = cmd.ExecuteScalar();
+                cmd.Dispose();
+                cmd = null;
+            }
+            catch
+            {
+                ret = null;
+            }
+            finally
+            {
+                GC.Collect();
+            }
+
+            return ret;
+        }
+
+        public bool ExecNonQuery(string prmQuery, SqlTransaction tra)
+        {
+            bool ret = false;
+
+            try
+            {
+                if (sqlBaglanti.State != ConnectionState.Open)
+                    sqlBaglanti.Open();
+                SqlCommand cmd = new SqlCommand(prmQuery, sqlBaglanti);
+                cmd.Transaction = tra;
+                cmd.ExecuteNonQuery();
+
+                ret = true;
+                cmd.Dispose();
+            }
+            catch
+            {
+                ret = false;
+            }
+            finally
+            {
+                GC.Collect();
+            }
+
+            return ret;
+        }
     }
 }

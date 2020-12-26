@@ -13,22 +13,22 @@ namespace GorevTakipSistemi {
     public partial class GorevOlustur {
         
         /// <summary>
-        /// ASPxDateEdit1 control.
+        /// deStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxDateEdit ASPxDateEdit1;
+        protected global::DevExpress.Web.ASPxDateEdit deStartDate;
         
         /// <summary>
-        /// ASPxDateEdit2 control.
+        /// deEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxDateEdit ASPxDateEdit2;
+        protected global::DevExpress.Web.ASPxDateEdit deEndDate;
         
         /// <summary>
         /// deDropDown control.
@@ -65,5 +65,14 @@ namespace GorevTakipSistemi {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxMemo meDetay;
+        
+        /// <summary>
+        /// btnKaydet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnKaydet;
     }
 }

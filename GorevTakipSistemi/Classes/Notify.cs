@@ -8,12 +8,12 @@ namespace GorevTakipSistemi.Classes
 {
     public class Notify
     {
-        public static void ShowSuccess(Page page, string mesaj)
+        public static void ShowSuccess(string mesaj)
         {
             string cleanMessage = mesaj.Replace("'", "\\'");
             string script = "<script> alertify.success(\"" + cleanMessage + "\"); </script>";
 
-            page = HttpContext.Current.CurrentHandler as Page;
+            Page page = HttpContext.Current.CurrentHandler as Page;
 
             if(page != null && !page.ClientScript.IsClientScriptBlockRegistered("ShowSuccess"))
             {
@@ -21,12 +21,12 @@ namespace GorevTakipSistemi.Classes
             }
         }
 
-        public static void ShowError(Page page, string mesaj)
+        public static void ShowError(string mesaj)
         {
             string cleanMessage = mesaj.Replace("'", "\\'");
             string script = "<script> alertify.error(\"" + cleanMessage + "\"); </script>";
 
-            page = HttpContext.Current.CurrentHandler as Page;
+            Page page = HttpContext.Current.CurrentHandler as Page;
 
             if (page != null && !page.ClientScript.IsClientScriptBlockRegistered("ShowError"))
             {
@@ -34,12 +34,12 @@ namespace GorevTakipSistemi.Classes
             }
         }
 
-        public static void ShowInfo(Page page, string mesaj)
+        public static void ShowInfo(string mesaj)
         {
             string cleanMessage = mesaj.Replace("'", "\\'");
             string script = "<script> alertify.log(\"" + cleanMessage + "\"); </script>";
 
-            page = HttpContext.Current.CurrentHandler as Page;
+            Page page = HttpContext.Current.CurrentHandler as Page; //on işlem yapılan sayfanın tutulması currentHandler
 
             if (page != null && !page.ClientScript.IsClientScriptBlockRegistered("ShowInfo"))
             {

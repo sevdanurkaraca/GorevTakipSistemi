@@ -92,6 +92,46 @@ namespace GorevTakipSistemi.Classes
             return ret;
 
         }
+
+
+        public bool Kayit(DBConnection con, SqlTransaction tra)
+        {
+            bool ret = false;
+
+            try
+            {
+                List<SqlParameter> sqlParameters = new List<SqlParameter>();
+
+                sqlParameters.Add(new SqlParameter("@ID", this.ID));
+                sqlParameters.Add(new SqlParameter("@IsSilindi", this.IsSilindi));
+                sqlParameters.Add(new SqlParameter("@TeknisyenID", this.TeknisyenID));
+                sqlParameters.Add(new SqlParameter("@GorevID", this.GorevID));
+
+                object o = con.RetStoredProc("sp_TblGorevli", sqlParameters, tra);
+
+                if (o == null)
+                {
+                    ret = false;
+                }
+                else
+                {
+                    ret = true;
+                    this.ID = Convert.ToInt32(o);
+                }
+
+                o = null;
+                sqlParameters.Clear();
+                sqlParameters = null;
+            }
+            catch
+            {
+                ret = false;
+            }
+            GC.Collect();
+            return ret;
+
+        }
+
         #endregion
     }
 }

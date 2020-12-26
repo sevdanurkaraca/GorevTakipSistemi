@@ -21,7 +21,10 @@
     <link href="fonts/icomoon/icomoon.css" rel="stylesheet">
     <link href="css/c3/c3.css" rel="stylesheet">
     <link href="css/circliful/circliful.css" rel="stylesheet">
-
+    <link href="css/alertify/core.css" rel="stylesheet" />
+    <link href="css/alertify/default.css" rel="stylesheet" />
+    <script src="js/alertify/alertify.js"></script>
+    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -59,7 +62,7 @@
                     <li class="dropdown-footer">See all the notifications</li>
                 </ul>
                 </li>--%>
-               <%-- <li class="list-box hidden-xs dropdown"><a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-archive2"></i></a><span class="info-label red-bg">3</span><ul class="dropdown-menu stats-widget clearfix">
+                <%-- <li class="list-box hidden-xs dropdown"><a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-archive2"></i></a><span class="info-label red-bg">3</span><ul class="dropdown-menu stats-widget clearfix">
                     <li>
                         <h5 class="text-success">$37895</h5>
                         <p>Revenue <span class="text-success">+2%</span></p>

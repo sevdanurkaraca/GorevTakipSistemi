@@ -116,6 +116,53 @@ namespace GorevTakipSistemi
             return ret;
 
         }
+
+
+
+        public bool Kayit(DBConnection con, SqlTransaction tra)
+        {
+            bool ret = false;
+
+            try
+            {
+                List<SqlParameter> sqlParameters = new List<SqlParameter>();
+
+                sqlParameters.Add(new SqlParameter("@ID", this.ID));
+                sqlParameters.Add(new SqlParameter("@IsSilindi", this.IsSilindi));
+                sqlParameters.Add(new SqlParameter("@Durum", this.Durum));
+                sqlParameters.Add(new SqlParameter("@GorevBaslik", this.GorevBaslik));
+                sqlParameters.Add(new SqlParameter("@GorevDetay", this.GorevDetay));
+                sqlParameters.Add(new SqlParameter("@BaslangicTarihi", this.BaslangicTarihi));
+                sqlParameters.Add(new SqlParameter("@BitisTarihi", this.BitisTarihi));
+                sqlParameters.Add(new SqlParameter("@OlusturanKullaniciID", this.OlusturanKullaniciID));
+                sqlParameters.Add(new SqlParameter("@GrupGuid", this.GrupGuid));
+                sqlParameters.Add(new SqlParameter("@YapilanIs", this.YapilanIs));
+                sqlParameters.Add(new SqlParameter("@TamamlayanKullaniciID", this.TamamlayanKullaniciID));
+
+                object o = con.RetStoredProc("sp_TblGorev", sqlParameters, tra);
+
+                if (o == null)
+                {
+                    ret = false;
+                }
+                else
+                {
+                    ret = true;
+                    this.ID = Convert.ToInt32(o);
+                }
+
+                o = null;
+                sqlParameters.Clear();
+                sqlParameters = null;
+            }
+            catch
+            {
+                ret = false;
+            }
+            GC.Collect();
+            return ret;
+
+        }
         #endregion
 
 

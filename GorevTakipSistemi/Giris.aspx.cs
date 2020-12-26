@@ -37,7 +37,7 @@ namespace GorevTakipSistemi
             }
             else
             {
-               Notify.ShowError(this, "Giriş Sırasında Hata Oluştu");
+               Notify.ShowError("Giriş Sırasında Hata Oluştu");
             }
         }
     }

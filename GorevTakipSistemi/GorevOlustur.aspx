@@ -31,7 +31,7 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <label for="userName">Başlangıç Tarihi</label>
-                        <dx:ASPxDateEdit ID="ASPxDateEdit1" runat="server" Theme="Office365" Width="100%"></dx:ASPxDateEdit>
+                        <dx:ASPxDateEdit ID="deStartDate" runat="server" Theme="Office365" Width="100%"></dx:ASPxDateEdit>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div class="panel-body">
                     <div class="form-group has-success">
                         <label for="userName">Bitiş Tarihi</label>
-                        <dx:ASPxDateEdit ID="ASPxDateEdit2" runat="server" Width="100%" Theme="Office365"></dx:ASPxDateEdit>
+                        <dx:ASPxDateEdit ID="deEndDate" runat="server" Width="100%" Theme="Office365"></dx:ASPxDateEdit>
                     </div>
                 </div>
             </div>
@@ -91,6 +91,16 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gutter">
+        <div class="col-md-12">
+            <div class="panel no-border">
+                <div class="btn-group">
+                    <dx:ASPxButton ID="btnKaydet" runat="server" Theme="Office365" Text="Kaydet" OnClick="btnKaydet_Click"></dx:ASPxButton>
                 </div>
             </div>
         </div>

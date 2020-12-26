@@ -17,7 +17,7 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="fonts/icomoon/icomoon.css" rel="stylesheet">
     <link href="css/alertify/core.css" rel="stylesheet" />
-    <link href="css/alertify/default.css" rel="stylesheet" />
+    <link href="css/alertify/default.css" rel="stylesheet" /> 
     <script src="js/alertify/alertify.js"></script>
 </head>
 <body class="login-bg">
