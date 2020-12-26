@@ -116,8 +116,8 @@
             </div>
             <div class="collapse navbar-collapse" id="collapse-navbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index-2.html"><i class="icon-blur_on"></i>Dashboard</a></li>
-                    <li class="active"><a href="GorevOlustur.aspx"><i class="icon-blur_on"></i>Görev Oluştur</a></li>
+                    <li id="liGorevler" runat="server"><a href="Gorevler.aspx"><i class="icon-blur_on"></i>Görevler</a></li>
+                    <li id="liGorevOlustur" runat="server"><a href="GorevOlustur.aspx"><i class="icon-blur_on"></i>Görev Oluştur</a></li>
                     <%--<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon-business_center"></i>Pages <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="profile.html">Profile</a></li>
@@ -184,7 +184,7 @@
                 <div class="row gutter">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="page-title">
-                            <h4>Dashboard</h4>
+                            <h4 id="pageTitle" runat="server"></h4>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

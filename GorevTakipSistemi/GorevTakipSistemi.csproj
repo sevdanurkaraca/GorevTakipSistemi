@@ -225,6 +225,7 @@
   <ItemGroup>
     <Compile Include="Classes\DBConnection.cs" />
     <Compile Include="Classes\Gorevli.cs" />
+    <Compile Include="Classes\Helpers.cs" />
     <Compile Include="Classes\Kullanici.cs" />
     <Compile Include="Classes\Notify.cs" />
     <Compile Include="Giris.aspx.cs">
