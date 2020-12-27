@@ -224,6 +224,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\DBConnection.cs" />
+    <Compile Include="Classes\Dosya.cs" />
     <Compile Include="Classes\Gorevli.cs" />
     <Compile Include="Classes\Helpers.cs" />
     <Compile Include="Classes\Kullanici.cs" />
