@@ -196,6 +196,7 @@ namespace GorevTakipSistemi.Classes
             {
                 if (sqlBaglanti.State != ConnectionState.Open)
                     sqlBaglanti.Open();
+
                 SqlCommand cmd = new SqlCommand(prmQuery, sqlBaglanti);
                 cmd.Transaction = tra;
                 cmd.ExecuteNonQuery();

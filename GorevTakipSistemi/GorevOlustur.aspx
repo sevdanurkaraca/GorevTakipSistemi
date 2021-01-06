@@ -31,7 +31,7 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <label for="userName">Başlangıç Tarihi</label>
-                        <dx:ASPxDateEdit ID="deStartDate" runat="server" Theme="Office365" Width="100%"></dx:ASPxDateEdit>
+                        <dx:ASPxDateEdit ID="deStartDate" runat="server" Theme="Office365" Width="100%" OnInit="deStartDate_Init"></dx:ASPxDateEdit>
                     </div>
                 </div>
             </div>

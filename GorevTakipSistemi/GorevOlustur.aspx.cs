@@ -10,52 +10,53 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Net;
 using System.Net.Mail;
+using DevExpress;
+using Ionic.Zip;
+using System.Configuration;
 
 namespace GorevTakipSistemi
 {
     public partial class GorevOlustur : System.Web.UI.Page
     {
-        //mail gönderme işlemi -- mail taslağı
-        public static string Body =
-        #region body
-
-          @"  < !DOCTYPE HTML PUBLIC ' -//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
-<html xmlns = 'http://www.w3.org/1999/xhtml' >
-< head >
-    < meta name = 'viewport' content='width=device-width' />
+  //mail gönderim taslağı -- html
+        public static string Body = @"<!DOCTYPE HTML PUBLIC ' -//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+    <meta name = 'viewport' content='width=device-width' />
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <title>Mesaj Kayıtları</title>
 </head>
-<body style = 'margin: 0; padding: 0; font-family: Helvetica Neue,Helvetica,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100%!important; height: 100%; line-height: 1.6; background-color: #f6f6f6' >
-    < table style='background-color: #f6f6f6; width: 100%;'>
+<body style = 'margin: 0; padding: 0; font-family: Helvetica Neue,Helvetica,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100%!important; height: 100%; line-height: 1.6; background-color: #f6f6f6'>
+    <table style='background-color: #f6f6f6; width: 100%;'>
         <tr>
-            <td style = 'vertical-align: top;' ></ td >
-            < td style='vertical-align: top; display: block!important; max-width: 600px!important; margin: 0 auto!important; clear: both!important' width='390'>
-                <div style = 'max-width: 600px; margin: 0 auto; display: block; padding: 20px' >
-                    < table style='background: #fff; border: 1px solid #e9e9e9; border-radius: 30px' width='100%' cellpadding='0' cellspacing='0'>
+            <td style = 'vertical-align: top;'></td>
+            <td style='vertical-align: top; display: block!important; max-width: 600px!important; margin: 0 auto!important; clear: both!important' width='760'>
+                <div style = 'max-width: 600px; margin: 0 auto; display: block; padding: 20px'>
+                    <table style='background: #fff; border: 1px solid #e9e9e9; border-radius: 30px' width='100%' cellpadding='0' cellspacing='0'>
                         <tr>
-                            <td style = 'vertical-align: top; padding: 40px' >
-                                < table cellpadding='0' cellspacing='0'>
+                            <td style = 'vertical-align: top; padding: 40px'>
+                                <table cellpadding='0' cellspacing='0'>
                                     <tr>
-                                        <td style = 'vertical-align: top; font-family: Helvetica Neue,Helvetica,Helvetica,Arial,sans-serif; font-size: 16px; color: #fff; font-weight: 500; padding: 20px; text-align: center; border-radius: 20px; background: #0592CC' >
-                                            < strong > Görevlendirme Bildirimi</strong>
+                                        <td style = 'vertical-align: top; font-family: Helvetica Neue,Helvetica,Helvetica,Arial,sans-serif; font-size: 16px; color: #fff; font-weight: 500; padding: 20px; text-align: center; border-radius: 20px; background: #0592CC'>
+                                            <strong>Görevlendirme Bildirimi</strong>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style = 'vertical-align: top; padding: 0 0 20px;' >
-                                            < h4 style='font-family: Helvetica Neue,Helvetica,Helvetica,Arial,sans-serif; color: black; margin: 40px 0 0; line-height: 1.2; font-weight: 400; font-size: 18px'; font-bold='true'>
-                                                Sayın, #alici
-                                            </h4>
+                                        <td style = 'vertical-align: top; padding: 0 0 20px;'>
+                                            <h4 style='font-family: Helvetica Neue,Helvetica,Helvetica,Arial,sans-serif; color: #000; margin: 40px 0 0; line-height: 1.2; font-weight: 400; font-size: 18px'>
+                                                Sayın, #alici</h4>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style = 'vertical-align: top; padding: 0 0 20px; font-family: Helvetica Neue,Helvetica,Helvetica,Arial,sans-serif;' >
+                                        <td style = 'vertical-align: top; padding: 0 0 20px; font-family: Helvetica Neue,Helvetica,Helvetica,Arial,sans-serif;'>
                                             #atayan tarafından, size görev atanmıştır.
-                                        </ td >
-                                    </ tr >
-                                    < tr >
-                                        < td > &nbsp;
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>&nbsp;
+                                        </td>
+                                    </tr>
+                                    
                                     <tr>
                                         <td>&nbsp;</td>
                                     </tr>
@@ -65,15 +66,11 @@ namespace GorevTakipSistemi
                     </table>
                 </div>
             </td>
-            <td style = 'vertical-align: top;' ></ td >
-        </ tr >
-    </ table >
-</ body >
-</ html >";
-
-        #endregion
-
-
+            <td style = 'vertical-align: top;'></td>
+        </tr>
+    </table>
+</body>
+</html>";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -88,10 +85,58 @@ namespace GorevTakipSistemi
                 if (!IsPostBack)
                 {
                     DoldurGorevli();
+
+                    if (Request["ID"] != null) //yeni bir görev değilse yani onun kontrolü
+                    {
+                        Gorev g = new Gorev();
+
+                        if (g.KayitAc(Convert.ToInt32(Request["ID"])))
+                        {
+                            deStartDate.Date = g.BaslangicTarihi;
+                            deEndDate.Date = g.BitisTarihi;
+                            txtBaslik.Text = g.GorevBaslik;
+                            meDetay.Text = g.GorevDetay;
+                        }
+                        GorevliIsaretle(Convert.ToInt32(Request["ID"])); //daha önceden atanmış görevlilerin işaretlenmesi --> oluşturulan görevin teknisyenlerine ulaşılması (TeknisyenID)
+                    }
                 }
+
+                Helpers.DurumToplam();
             }
             
         }
+
+        private void GorevliIsaretle(int v)
+        {
+            DBConnection con = new DBConnection();
+
+            try
+            {
+                ASPxListBox list = ((ASPxListBox)deDropDown.FindControl("listbox"));
+                DataTable dt = con.GetQuery("SELECT * FROM Tbl_Gorevli WHERE IsSilindi = 0 AND GorevID = " + v);
+
+                if(dt.Rows.Count > 0)
+                {
+                    string txt = "";
+                    ListEditItem teknisyenID;
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        teknisyenID = list.Items.FindByValue(dr["TeknisyenID"]); //görevlideki id ye ait kaydın bulunması
+                        teknisyenID.Selected = true;
+                        txt += "; " + teknisyenID.ToString();
+                    }
+
+                    deDropDown.Text = txt.Length > 0 ? txt.Substring(2) : ""; //if
+                }
+            }
+            catch(Exception ex)
+            {
+                Notify.ShowError(ex.Message);
+            }
+            con.Close();
+        }
+
         //Görevli Listboxını doldurmak için kullanılan fonk
         private void DoldurGorevli()
         {
@@ -115,8 +160,6 @@ namespace GorevTakipSistemi
             meDetay.Text = "";
             fuDosya = null;
         }
-
-
 
         protected void btnKaydet_Click(object sender, EventArgs e)
         {
@@ -151,7 +194,7 @@ namespace GorevTakipSistemi
                 Gorevli gorevli = new Gorevli();
                 Kullanici kullanici = new Kullanici();
 
-                g.ID = -1;
+                g.ID = Request["ID"] == null ? -1 : Convert.ToInt32(Request["ID"]);
                 g.GorevBaslik = txtBaslik.Text;
                 g.GorevDetay = meDetay.Text;
                 g.OlusturanKullaniciID = ((Kullanici)Session["Kullanici"]).ID; //login olan kullanıcı --> Görevi oluşturan kullanıcı Login olan kullanıcı oluyor
@@ -161,7 +204,7 @@ namespace GorevTakipSistemi
 
                 if (g.Kayit(con, tra)) //true ise görevlileri kaydedebiliriz
                 {
-                    con.ExecNonQuery("UPDATE Tbl_Gorevli SET IsSilindi = 1 WHERE GorevID = " + g.ID, tra);
+                    con.ExecNonQuery("UPDATE Tbl_Gorevli SET IsSilindi = 1 WHERE GorevID = " + g.ID, tra); //düzeltme kaydı yapıldığında
 
                     for(int i = 0; i < list.SelectedItems.Count; i++) //seçilen görevlilerin eklenmesi
                     {
@@ -170,30 +213,41 @@ namespace GorevTakipSistemi
 
                         if(gorevli.Kayit(con, tra))
                         {
-                            gorevli.ID = -1;
+                            gorevli.ID = -1;//insert yapabilmek için -1, prosedürün ıd i bulmaması için 
 
-                            //mail gonderme işlemi -- görevi atayan kişi yani kullanıcı(oluşturan yani)
-                            string prmBody = Body.Replace("#atayan", ((Kullanici)Session["Kullanici"]).AdSoyad);
-                            //görev atanan kişi, yani mailin geldiği kişi
-
-                            if (kullanici.KayitAc(gorevli.TeknisyenID))
+                            if (Request["ID"] == null) //düzenleme yapılan görevde tekrardan mail göndermemek için, ıd null ise gönderecek sadece yani
                             {
-                                prmBody = prmBody.Replace("#alici", kullanici.AdSoyad);
+                                //mail gonderme işlemi -- görevi atayan kişi yani kullanıcı(görevi oluşturan yani)
+                                string prmBody = Body.Replace("#atayan", ((Kullanici)Session["Kullanici"]).AdSoyad);
 
-                                if (!Helpers.MailGonder(kullanici.Email, prmBody, "Görevlendirme Bildirimi "))
+                                if (kullanici.KayitAc(gorevli.TeknisyenID))//görev atanan kişilere mail gönderilmesi
                                 {
-                                    throw new Exception("Mail gönderimi sırasında hata oluştu");
+                                    prmBody = prmBody.Replace("#alici", kullanici.AdSoyad);
+
+                                    if (!Helpers.MailGonder(kullanici.Email, prmBody, "Görevlendirme Bildirimi "))
+                                    {
+                                        throw new Exception("Mail gönderimi sırasında hata oluştu");
+                                    }
                                 }
                             }
                         }
                         else
                             throw new Exception("Görevli Kaydı Sırasında Hata Oluştu");
                     }
+                    if (fuDosya.HasFile)
+                    {
+                        if (!Helpers.DosyaYukle(fuDosya, Server, g.GrupGuid, con, tra ))
+                        {
+                            throw new Exception("Dosya kaydı sırasında hata oluştu");
+
+                        }
+                    }
                 }
                 else
                     throw new Exception("Görev Kaydı Sırasında Hata Oluştu");
 
                 tra.Commit();
+                Helpers.DurumToplam();
                 Notify.ShowSuccess("Kayıt İşlemi Başarılı");
                 Temizle();
             }
@@ -202,8 +256,14 @@ namespace GorevTakipSistemi
                 tra.Rollback();
                 Notify.ShowError(ex.Message);
             }
+
             tra.Dispose();
             con.Close();
+        }
+
+        protected void deStartDate_Init(object sender, EventArgs e)
+        {
+            deStartDate.Date= DateTime.Now.Date;
         }
     }
 }

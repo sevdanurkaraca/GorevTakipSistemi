@@ -43,12 +43,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="1.1 Ionic.Zip.Reduced">
+      <HintPath>D:\49 Derste Asp.Net ile Web Geliştirici Olun\14. Dosya Zip\1.1 Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v20.2.Core, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxGantt.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxThemes.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.Resources.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v20.2, Version=20.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="ionic.zip.reduced, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\ionic.zip.reduced.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -102,11 +110,13 @@
     <Content Include="css\progressbars.css" />
     <Content Include="css\tasks.css" />
     <Content Include="css\wysiwyg-editor\editor.css" />
+    <Content Include="DurumDegistir.aspx" />
     <Content Include="fonts\font-awesome.css" />
     <Content Include="fonts\fontawesome-webfont3295.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\icomoon\icomoon.css" />
     <Content Include="fonts\icomoon\icomoon771e.svg" />
+    <Content Include="GanttCizelgesi.aspx" />
     <Content Include="Giris.aspx" />
     <Content Include="Gorevler.aspx" />
     <Content Include="GorevOlustur.aspx" />
@@ -142,6 +152,7 @@
     <Content Include="img\thumbs\bluemoon-lg-twelve.jpg" />
     <Content Include="img\thumbs\bluemoon-lg-twenty.jpg" />
     <Content Include="img\thumbs\bluemoon-lg-two.jpg" />
+    <Content Include="img\thumbs\user.png" />
     <Content Include="img\thumbs\user1.png" />
     <Content Include="img\thumbs\user10.png" />
     <Content Include="img\thumbs\user11.png" />
@@ -157,6 +168,7 @@
     <Content Include="img\thumbs\user7.png" />
     <Content Include="img\thumbs\user8.png" />
     <Content Include="img\thumbs\user9.png" />
+    <Content Include="img\thumbs\userg.png" />
     <Content Include="img\ui-icons_454545_256x240.png" />
     <Content Include="js\alertify\alertify-custom.js" />
     <Content Include="js\alertify\alertify.js" />
@@ -220,7 +232,10 @@
     <Content Include="js\treeview\bootstrap-treeview.js" />
     <Content Include="js\treeview\custom-treeview.js" />
     <Content Include="js\wysiwyg-editor\editor.js" />
-    <Content Include="Web.config" />
+    <Content Include="KullanicilarEkrani.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\DBConnection.cs" />
@@ -228,7 +243,22 @@
     <Compile Include="Classes\Gorevli.cs" />
     <Compile Include="Classes\Helpers.cs" />
     <Compile Include="Classes\Kullanici.cs" />
+    <Compile Include="Classes\Mesajj.cs" />
     <Compile Include="Classes\Notify.cs" />
+    <Compile Include="DurumDegistir.aspx.cs">
+      <DependentUpon>DurumDegistir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DurumDegistir.aspx.designer.cs">
+      <DependentUpon>DurumDegistir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GanttCizelgesi.aspx.cs">
+      <DependentUpon>GanttCizelgesi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GanttCizelgesi.aspx.designer.cs">
+      <DependentUpon>GanttCizelgesi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Giris.aspx.cs">
       <DependentUpon>Giris.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -250,6 +280,13 @@
     </Compile>
     <Compile Include="GorevOlustur.aspx.designer.cs">
       <DependentUpon>GorevOlustur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KullanicilarEkrani.aspx.cs">
+      <DependentUpon>KullanicilarEkrani.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KullanicilarEkrani.aspx.designer.cs">
+      <DependentUpon>KullanicilarEkrani.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">

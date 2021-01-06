@@ -35,7 +35,7 @@ namespace GorevTakipSistemi
             try
             {
                 DBConnection con = new DBConnection();
-                string prmQuery = "SELECT * FROM Tbl_Gorev IsSilindi = 0 AND ID = " + prmID;
+                string prmQuery = "SELECT * FROM Tbl_Gorev WHERE IsSilindi = 0 AND ID = " + prmID;
                 DataTable dt = con.GetQuery(prmQuery);
 
                 if (dt.Rows.Count > 0)

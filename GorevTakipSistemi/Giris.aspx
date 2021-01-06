@@ -35,10 +35,10 @@
                     <div class="form-group">
                         <label for="password">Parola</label><input id="txtParola" runat="server" type="password" class="form-control" placeholder="Parola"></div>
                     <button class="btn btn-danger btn-block" id="btnGiris" runat="server" onserverclick="btnGiris_ServerClick" type="submit">Giriş Yap</button></div>
-                <div class="checkbox no-margin">
-                    <input type="checkbox" id="remember" checked="checked"><label for="remember">Beni Hatırla</label></div>
+                <%--<div class="checkbox no-margin">
+                    <input type="checkbox" id="remember" checked="checked"><label for="remember">Beni Hatırla</label></div>--%>
             </div>
-            <p>Yeni Üyelik İçin  <a href="signup.html">Kayıt Ol</a></p>
+            <%--<p>Yeni Üyelik İçin  <a href="signup.html">Kayıt Ol</a></p>--%>
         </div>
     </form>
 

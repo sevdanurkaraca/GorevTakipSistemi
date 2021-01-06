@@ -25,7 +25,7 @@ namespace GorevTakipSistemi.Classes
 
                 sqlParameters.Add(new SqlParameter("@ID", this.ID));
                 sqlParameters.Add(new SqlParameter("@IsSilindi", this.IsSilindi));
-                sqlParameters.Add(new SqlParameter("@GrupGuid", this.GorevGuid));
+                sqlParameters.Add(new SqlParameter("@GorevGuid", this.GorevGuid));
                 sqlParameters.Add(new SqlParameter("@DosyaAdi", this.DosyaAdi));
                 sqlParameters.Add(new SqlParameter("@Path", this.Path));
 

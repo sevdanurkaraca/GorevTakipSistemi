@@ -30,7 +30,7 @@ namespace GorevTakipSistemi.Classes
             try
             {
                 DBConnection con = new DBConnection();
-                string prmQuery = "SELECT * FROM Tbl_Kullanici IsSilindi = 0 AND ID = " + prmID;
+                string prmQuery = "SELECT * FROM Tbl_Kullanici WHERE IsSilindi = 0 AND ID = " + prmID;
                 DataTable dt = con.GetQuery(prmQuery);
 
                 if(dt.Rows.Count > 0)
@@ -111,6 +111,7 @@ namespace GorevTakipSistemi.Classes
 
                 sqlParameters.Add(new SqlParameter("@ID", this.ID));
                 sqlParameters.Add(new SqlParameter("@IsSilindi", this.IsSilindi));
+                sqlParameters.Add(new SqlParameter("@KullaniciAdi", this.KullaniciAdi));
                 sqlParameters.Add(new SqlParameter("@AdSoyad", this.AdSoyad));
                 sqlParameters.Add(new SqlParameter("@Email", this.Email));
                 sqlParameters.Add(new SqlParameter("@Parola", this.Parola));
