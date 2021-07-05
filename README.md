@@ -1,3 +1,5 @@
 # GorevTakipSistemi
 DevExpress, ASP.Net, MsSQL
 Task Tracking, Schedule, Job Tracking, Gantt Chart
+
+Yapılan bu proje kapsamında manuel olarak gerçekleştirilen çeşitli iş operasyonlarının otomatik hale getirilmesi hedeflenmiştir. ProTak Görev Takip Sistemi ASP.NET ile geliştirilmiş web tabanlı bir iş uygulamasıdır. Uygulama Visual Studio ortamında geliştirilmiştir. Görsellik ve işlevsellik açısından kolaylık sağlayan DevExpress bileşenleri tercih edilmiştir. Görsellik açısından Bootstrap arayüz bileşenlerine de yer verilmiştir. Kullanılan SQL Server veri tabanı ile sistemde kayıtlı tüm veriler kayıt altına alınabilmekte ve listelenebilmektedir. Kullanışlı arayüz sayesinde hızlı ve kolayca bir iş takip süreci başlatmak mümkündür. Sistemde kullanılan Gantt çizelgesi ile iş adımlarının iş başlamadan önce, toplamda belirlenen sürelere bölünüp görsel olarak görebilmemiz mümkündür. Çizelgede oluşturulmuş görevlere bir alt görev yahut yeni bir görev başlığı oluşturulabilmektedir. Yapılan bu çalışma ile kurumlarda iş verimliliğinin artırılması planlanmaktadır.
